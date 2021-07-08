@@ -1,0 +1,57 @@
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+--
+-- Host: localhost    Database: vk
+-- ------------------------------------------------------
+-- Server version	8.0.25-0ubuntu0.20.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор строки',
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Почта',
+  `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Телефон',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Время создания строки',
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Время обновления строки',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `phone` (`phone`),
+  CONSTRAINT `phone_check` CHECK (regexp_like(`phone`,_utf8mb4'^\\+7[0-9]{10}$'))
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Таблица пользователей';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'tromp.oscar@example.com','+79584808803','1978-11-13 15:58:05','2021-07-08 15:25:11'),(2,'ocorwin@example.org','+79751209721','1994-04-12 05:52:56','2021-07-08 15:25:11'),(3,'kade45@example.net','+79001622232','1995-01-01 15:11:58','2021-07-08 15:25:11'),(4,'berry.rohan@example.org','+79754482025','2005-07-20 23:19:27','2021-07-08 15:25:11'),(5,'dcrona@example.com','+79767543462','1988-07-26 22:26:12','2021-07-08 15:25:11'),(6,'ghessel@example.com','+79574271266','2005-09-28 22:46:34','2021-07-08 15:25:11'),(7,'fkiehn@example.org','+79568725976','1988-11-07 12:40:39','2021-07-08 15:25:11'),(8,'camron.batz@example.com','+79120816113','1970-08-30 04:15:18','2021-07-08 15:25:11'),(9,'skerluke@example.org','+79897902667','2000-08-11 23:49:40','2021-07-08 15:25:11'),(10,'imuller@example.org','+79127065031','1981-10-12 07:23:55','2021-07-08 15:25:11'),(11,'o\'hara.howard@example.com','+79941617184','1995-07-27 08:03:55','2021-07-08 15:25:11'),(12,'ykemmer@example.org','+79326890860','1985-01-09 17:39:41','2021-07-08 15:25:11'),(13,'grimes.aditya@example.org','+79809602779','2020-02-21 08:24:05','2021-07-08 15:25:11'),(14,'chaz43@example.org','+79067341348','2019-01-22 16:33:28','2021-07-08 15:25:11'),(15,'jaden05@example.net','+79907898430','2001-06-10 19:09:59','2021-07-08 15:25:11'),(16,'adele.weimann@example.org','+79337468143','1998-12-03 06:07:48','2021-07-08 15:25:11'),(17,'murazik.dashawn@example.net','+79963645454','2016-12-24 00:22:35','2021-07-08 15:25:11'),(18,'xbechtelar@example.org','+79805822875','1995-10-30 11:51:25','2021-07-08 15:25:11'),(19,'prohaska.gudrun@example.net','+79138178044','1982-01-13 11:11:07','2021-07-08 15:25:11'),(20,'dickinson.bart@example.net','+79273421627','2012-08-16 08:35:44','2021-07-08 15:25:11'),(21,'demarcus.wintheiser@example.com','+79952574033','2003-07-13 21:46:52','2021-07-08 15:25:11'),(22,'cpouros@example.net','+79942605317','2010-05-11 17:44:21','2021-07-08 15:25:11'),(23,'maurine79@example.com','+79855304519','1981-02-01 04:57:08','2021-07-08 15:25:11'),(24,'arau@example.net','+79448706677','1978-07-27 03:53:48','2021-07-08 15:25:11'),(25,'kassulke.jesus@example.org','+79677619856','1991-03-23 17:05:42','2021-07-08 15:25:11'),(26,'rice.gabriel@example.org','+79041979284','1971-04-01 08:39:19','2021-07-08 15:25:11'),(27,'abbey60@example.net','+79177036883','1996-05-30 03:58:38','2021-07-08 15:25:11'),(28,'kulas.maye@example.net','+79759246592','2007-06-05 08:20:45','2021-07-08 15:25:11'),(29,'ydicki@example.com','+79265122345','2013-03-29 21:49:25','2021-07-08 15:25:11'),(30,'ebert.nichole@example.org','+79047871980','1985-06-28 01:21:24','2021-07-08 15:25:11'),(31,'prosacco.art@example.com','+79443992896','2015-01-20 14:40:23','2021-07-08 15:25:11'),(32,'paucek.julianne@example.com','+79076348574','2012-08-03 21:10:28','2021-07-08 15:25:11'),(33,'aupton@example.com','+79049764213','2014-06-23 22:55:00','2021-07-08 15:25:11'),(34,'matilde.emard@example.net','+79019775371','1994-01-04 17:50:09','2021-07-08 15:25:11'),(35,'alexandrea.dicki@example.org','+79949584250','2017-02-28 03:18:50','2021-07-08 15:25:11'),(36,'darron95@example.org','+79688595170','2004-03-13 17:51:42','2021-07-08 15:25:11'),(37,'abdul.farrell@example.com','+79594223130','2015-05-15 17:48:55','2021-07-08 15:25:11'),(38,'orval61@example.org','+79905330172','2001-08-27 01:08:20','2021-07-08 15:25:11'),(39,'wtrantow@example.com','+79743981504','2009-08-20 22:56:51','2021-07-08 15:25:11'),(40,'kira03@example.com','+79003917037','1997-12-12 00:37:31','2021-07-08 15:25:11'),(41,'tromp.bart@example.net','+79787640700','1982-07-26 14:44:33','2021-07-08 15:25:11'),(42,'skyla35@example.net','+79926452426','1973-08-25 11:27:21','2021-07-08 15:25:11'),(43,'kuvalis.rashawn@example.com','+79269340060','1975-07-25 00:56:02','2021-07-08 15:25:11'),(44,'hortense23@example.org','+79567343053','1978-09-28 23:50:01','2021-07-08 15:25:11'),(45,'abernathy.helmer@example.org','+79028695117','1983-04-30 01:06:48','2021-07-08 15:25:11'),(46,'jeff35@example.org','+79441446457','1988-09-12 12:48:54','2021-07-08 15:25:11'),(47,'frederik01@example.com','+79121146964','2018-12-10 11:12:33','2021-07-08 15:25:11'),(48,'idenesik@example.net','+79281395482','2003-07-17 23:56:42','2021-07-08 15:25:11'),(49,'kathryn99@example.com','+79043536551','2007-11-23 06:36:16','2021-07-08 15:25:11'),(50,'dhahn@example.net','+79373496337','1971-07-29 04:48:06','2021-07-08 15:25:11'),(51,'stehr.vicenta@example.net','+79736872066','1972-05-17 01:52:00','2021-07-08 15:25:11'),(52,'eaufderhar@example.net','+79563871352','1970-06-25 03:06:17','2021-07-08 15:25:11'),(53,'igutmann@example.org','+79608740595','1986-09-30 18:05:10','2021-07-08 15:25:11'),(54,'graham.iva@example.net','+79352088948','2011-09-18 02:51:37','2021-07-08 15:25:11'),(55,'beulah65@example.com','+79934222987','1983-01-10 12:44:56','2021-07-08 15:25:11'),(56,'citlalli84@example.net','+79614848126','2018-03-08 02:45:32','2021-07-08 15:25:11'),(57,'gussie.hegmann@example.com','+79271571700','1974-12-18 07:10:06','2021-07-08 15:25:11'),(58,'wilmer.stehr@example.net','+79513314152','2004-10-20 19:32:36','2021-07-08 15:25:11'),(59,'ashly31@example.org','+79751855690','1997-06-18 18:37:45','2021-07-08 15:25:11'),(60,'friedrich11@example.org','+79219336030','1986-09-29 22:25:19','2021-07-08 15:25:11'),(61,'hackett.dwight@example.com','+79841113110','2015-08-12 11:21:20','2021-07-08 15:25:11'),(62,'corkery.leila@example.net','+79547557495','2002-01-29 09:24:18','2021-07-08 15:25:11'),(63,'heloise10@example.org','+79214448175','1972-05-22 10:46:25','2021-07-08 15:25:11'),(64,'barton.randal@example.net','+79429568420','1978-01-03 13:08:26','2021-07-08 15:25:11'),(65,'mwisoky@example.com','+79504497606','2002-10-26 14:51:04','2021-07-08 15:25:11'),(66,'ckunze@example.com','+79233782802','2015-01-20 13:38:09','2021-07-08 15:25:11'),(67,'imelda.stehr@example.org','+79655421224','2003-11-17 02:19:33','2021-07-08 15:25:11'),(68,'skyla.berge@example.com','+79575757746','1994-04-19 23:26:44','2021-07-08 15:25:11'),(69,'pfeffer.arielle@example.com','+79912525090','2001-12-18 06:50:55','2021-07-08 15:25:11'),(70,'anderson.rahul@example.org','+79835352244','2000-09-08 10:13:02','2021-07-08 15:25:11'),(71,'adelbert80@example.com','+79439185984','1995-08-09 09:37:19','2021-07-08 15:25:11'),(72,'jay59@example.com','+79689873217','2000-05-29 23:06:03','2021-07-08 15:25:11'),(73,'alyson79@example.net','+79131808167','1978-01-04 07:37:56','2021-07-08 15:25:11'),(74,'marquardt.wilton@example.net','+79589421212','2004-11-26 09:43:27','2021-07-08 15:25:11'),(75,'lucie.greenfelder@example.com','+79551681593','1978-01-26 18:56:58','2021-07-08 15:25:11'),(76,'ustehr@example.net','+79990144362','2009-07-03 15:36:20','2021-07-08 15:25:11'),(77,'blanca.smith@example.net','+79295677064','1982-03-01 02:25:20','2021-07-08 15:25:11'),(78,'adams.manuel@example.org','+79507952265','2005-07-17 07:14:50','2021-07-08 15:25:11'),(79,'aufderhar.viviane@example.org','+79652730164','2012-03-02 06:14:59','2021-07-08 15:25:11'),(80,'graham.maybell@example.net','+79739794055','1971-03-28 05:44:14','2021-07-08 15:25:11'),(81,'akrajcik@example.org','+79740779818','1984-09-10 22:53:23','2021-07-08 15:25:11'),(82,'amelia.thiel@example.org','+79484516958','2016-10-11 17:37:51','2021-07-08 15:25:11'),(83,'simonis.halie@example.net','+79200245367','1975-08-28 10:12:25','2021-07-08 15:25:11'),(84,'yundt.jessyca@example.net','+79547675990','2004-02-12 09:53:23','2021-07-08 15:25:11'),(85,'mills.eli@example.net','+79137643882','2010-05-13 11:56:16','2021-07-08 15:25:11'),(86,'reynolds.golda@example.com','+79045191473','2007-06-15 10:34:11','2021-07-08 15:25:11'),(87,'furman.ullrich@example.net','+79813025747','1986-06-26 07:45:07','2021-07-08 15:25:11'),(88,'ottis94@example.org','+79929554350','1989-12-27 19:19:21','2021-07-08 15:25:11'),(89,'rafaela11@example.com','+79208694543','2011-01-19 23:41:26','2021-07-08 15:25:11'),(90,'kayley39@example.net','+79254809695','2021-02-02 13:28:26','2021-07-08 15:25:11'),(91,'orunolfsson@example.org','+79647964876','1976-12-07 03:29:15','2021-07-08 15:25:11'),(92,'nolan.karlee@example.net','+79475395327','1990-02-08 03:56:52','2021-07-08 15:25:11'),(93,'rosalia.barton@example.org','+79433082039','2001-07-10 14:37:33','2021-07-08 15:25:11'),(94,'anjali.hansen@example.org','+79739224245','1995-07-11 16:51:25','2021-07-08 15:25:11'),(95,'bruen.edgar@example.org','+79396875143','1984-07-14 17:04:28','2021-07-08 15:25:11'),(96,'jkoch@example.org','+79766703007','1983-08-02 13:11:31','2021-07-08 15:25:11'),(97,'geffertz@example.com','+79642889642','2012-07-01 13:48:29','2021-07-08 15:25:11'),(98,'labadie.herman@example.org','+79914339218','2012-07-19 14:57:59','2021-07-08 15:25:11'),(99,'robel.alysha@example.net','+79643027197','2018-10-04 19:49:12','2021-07-08 15:25:11'),(100,'talon.crona@example.com','+79472118363','1973-06-22 03:59:38','2021-07-08 15:25:11');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-07-08 15:38:07
